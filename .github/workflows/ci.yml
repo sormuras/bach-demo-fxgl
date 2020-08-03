@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: "Build (JDK-${{ matrix.java }}, ${{ matrix.os }})"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        java: [11]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+      - name: 'Set up JDK'
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: 'Build project with Bach'
+        run: jshell https://sormuras.de/bach/build
