@@ -7,7 +7,7 @@ import de.sormuras.bach.project.Feature;
 import de.sormuras.bach.project.Link;
 import java.util.Locale;
 
-class Build {
+public class Build {
   public static void main(String... args) {
     var configuration = Configuration.ofSystem();
     var project =
