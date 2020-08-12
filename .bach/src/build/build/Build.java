@@ -22,10 +22,6 @@ public class Build {
                 Link.of(
                     "com.fasterxml.jackson.annotation",
                     "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar"))
-            .with(
-                Link.of(
-                    "kotlin.stdlib",
-                    "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.3.72/kotlin-stdlib-1.3.72.jar"))
             .with(linkModuleOfJavaFX("base"))
             .with(linkModuleOfJavaFX("controls"))
             .with(linkModuleOfJavaFX("fxml"))
