@@ -13,7 +13,6 @@ public class Build {
     var project =
         Project.ofCurrentDirectory()
             .without(Feature.CREATE_API_DOCUMENTATION)
-            .without(Feature.CREATE_CUSTOM_RUNTIME_IMAGE)
             .with(
                 Link.of(
                     "com.fasterxml.jackson.databind",

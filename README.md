@@ -30,11 +30,15 @@ java --module-path .bach\workspace\modules;lib --module com.github.sormuras.bach
 
 ## Run via custom runtime image
 
-_Is not supported, as FXGL refers to Java modules with Automatic Module Names:_
+- Linux/Mac
+```shell script
+.bach/workspace/image/bin/bach-fxgl
+```
 
-- `kotlin-stdlib`
-- `jackson-databind`
-- `jackson-annotations`
+- Windows
+```shell script
+.bach\workspace\image\bin\bach-fxgl[.bat]
+```
 
 [Bach.java]: https://github.com/sormuras/bach
 [JDK]: https://jdk.java.net
