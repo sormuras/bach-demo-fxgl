@@ -34,7 +34,7 @@ public class Build {
   // https://repo.maven.apache.org/maven2/org/openjfx
   static Link linkModuleOfJavaFX(String suffix) {
     var group = "org.openjfx";
-    var version = "14.0.2.1";
+    var version = "15";
     var platform = of("linux", "mac", "win");
     var coordinates = String.join(":", group, "javafx-" + suffix, version, platform);
     return Link.ofCentral("javafx." + suffix, coordinates);
