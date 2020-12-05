@@ -9,8 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
-        java: [11]
+        os: [ ubuntu-latest, macOS-latest, windows-latest ]
+        java: [ 16-ea ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: 'Checkout'
@@ -20,4 +20,10 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - name: 'Build project with Bach'
-        run: jshell https://sormuras.de/bach/build
+        run: jshell https://bit.ly/bach-main-build
+      - name: 'Upload custom runtime image'
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.event.repository.name }}-${{ matrix.os }}-${{ github.sha }}
+          path: |
+            .bach/workspace/image

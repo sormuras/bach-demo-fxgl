@@ -4,7 +4,7 @@
 
 ## Prepare
 
-- Download [JDK] 11 or later
+- Download [JDK] 16 or later
 - Clone this repository
 - Open a command shell and ensure `jshell --version` is working correctly
 
@@ -13,19 +13,19 @@
 Change into the base directory of your cloned project and call:
 
 ```shell script
-jshell https://sormuras.de/bach/build
+jshell https://bit.ly/bach-main-build
 ```
 
 ## Run via Java Launcher
 
 - Linux/Mac
 ```shell script
-java --module-path .bach/workspace/modules:lib --module com.github.sormuras.bach.fxgl
+java --module-path .bach/workspace/modules:.bach/external-modules --module com.github.sormuras.bach.fxgl
 ```
 
 - Windows
 ```shell script
-java --module-path .bach\workspace\modules;lib --module com.github.sormuras.bach.fxgl
+java --module-path .bach\workspace\modules;.bach\external-modules --module com.github.sormuras.bach.fxgl
 ```
 
 ## Run via custom runtime image
