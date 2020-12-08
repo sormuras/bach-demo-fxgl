@@ -16,8 +16,7 @@ import com.github.sormuras.bach.project.ProjectInfo.ExternalModules.Link;
                   module = "com.fasterxml.jackson.databind",
                   to = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.11.2/jackson-databind-2.11.2.jar"),
             }
-        ),
-    tweaks = @ProjectInfo.Tweak(tool = "jlink", args = {"--launcher", "bach-fxgl=com.github.sormuras.bach.fxgl"})
+        )
 )
 module build {
   requires com.github.sormuras.bach;
