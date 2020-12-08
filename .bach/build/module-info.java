@@ -11,18 +11,15 @@ import com.github.sormuras.bach.project.ProjectInfo.ExternalModules.Link;
             links = {
               @Link(
                   module = "com.fasterxml.jackson.annotation",
-                  to =
-                      "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar"),
+                  to = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar"),
               @Link(
                   module = "com.fasterxml.jackson.databind",
-                  to =
-                      "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.11.2/jackson-databind-2.11.2.jar"),
-            },
-            lookups = build.JavaFX16ea5.class
+                  to = "https://repo.maven.apache.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.11.2/jackson-databind-2.11.2.jar"),
+            }
         ),
     tweaks = @ProjectInfo.Tweak(tool = "jlink", args = {"--launcher", "bach-fxgl=com.github.sormuras.bach.fxgl"})
 )
-open module build {
+module build {
   requires com.github.sormuras.bach;
-  // TODO provides com.github.sormuras.bach.project.ModuleLookup with build.JavaFX16ea5;
+  provides com.github.sormuras.bach.project.ModuleLookup with build.JavaFX16ea5;
 }
