@@ -1,6 +1,6 @@
 # 🛸 Bach + FXGL
 
-[Bach.java] demo based on [Basic Game Example](https://github.com/AlmasB/FXGL/wiki/Basic-Game-Example-%28FXGL-11%29) by [FXGL].
+[Bach] demo based on [Basic Game Example](https://github.com/AlmasB/FXGL/wiki/Basic-Game-Example-%28FXGL-11%29) by [FXGL].
 
 ## Prepare
 
@@ -12,7 +12,7 @@
 Change into the base directory of your cloned project and call:
 
 ```shell script
-java --module-path .bach/cache --module com.github.sormuras.bach build
+java --module-path .bach/bin --module com.github.sormuras.bach build
 ```
 
 ## Run via Java Launcher
@@ -39,6 +39,6 @@ java --module-path .bach\workspace\modules;.bach\external-modules --module com.g
 .bach\workspace\image\bin\bach-fxgl[.bat]
 ```
 
-[Bach.java]: https://github.com/sormuras/bach
+[Bach]: https://github.com/sormuras/bach
 [JDK]: https://jdk.java.net
 [FXGL]: https://almasb.github.io/FXGL
