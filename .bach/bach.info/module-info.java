@@ -18,6 +18,7 @@ import com.github.sormuras.bach.ProjectInfo.Tools;
     },
     lookupExternals = {
       @Externals(name = Name.JAVAFX, version = "16"),
+      @Externals(name = Name.FXGL, version = "11.14"),
       @Externals(name = Name.SORMURAS_MODULES, version = "2021.03")
     }
     // </editor-fold>
