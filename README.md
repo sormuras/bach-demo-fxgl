@@ -9,10 +9,16 @@
 
 ## Build
 
-Change into the base directory of your cloned project and call:
+Change into the root directory of your cloned project and call:
 
+- Linux/Mac
 ```shell script
-java --module-path .bach/bin --module com.github.sormuras.bach build
+.bach/bin/bach build
+```
+
+- Windows
+```shell script
+.bach\bin\bach build
 ```
 
 ## Run via Java Launcher
