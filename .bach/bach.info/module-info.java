@@ -9,7 +9,7 @@ import com.github.sormuras.bach.ProjectInfo.*;
         @Libraries(
             externalLibraries = {
               @ExternalLibrary(name = LibraryName.JAVAFX, version = "16"),
-              @ExternalLibrary(name = LibraryName.FXGL, version = "11.14"),
+              @ExternalLibrary(name = LibraryName.FXGL, version = "11.15"),
               @ExternalLibrary(name = LibraryName.SORMURAS_MODULES, version = "2021.04.13")
             }))
 module bach.info {
