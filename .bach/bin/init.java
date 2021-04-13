@@ -11,6 +11,8 @@ class init {
 
   public static Path BIN = Path.of(".bach/bin");
 
+  public static String DEFAULT_VERSION = "17-ea-3";
+
   public static void main(String... args) throws Exception {
     var update = Files.isDirectory(BIN);
     if (update) {
@@ -21,10 +23,10 @@ class init {
     }
 
     System.out.println(""); // Load scripts and modules...
-    var version = args.length == 0 ? "17-ea" : args[0];
+    var version = args.length == 0 ? DEFAULT_VERSION : args[0];
     loadScript("bach").toFile().setExecutable(true);
     loadScript("bach.bat");
-    loadScript("boot.java");
+    loadScript("boot.java", version);
     loadScript("boot.jsh");
     loadScript("init.java");
     loadModule("com.github.sormuras.bach", version);
@@ -69,7 +71,11 @@ class init {
   }
 
   static Path loadScript(String name) throws Exception {
-    var uri = "https://github.com/sormuras/bach/raw/main/.bach/bin/" + name;
+    return loadScript(name, "main");
+  }
+
+  static Path loadScript(String name, String version) throws Exception {
+    var uri = "https://github.com/sormuras/bach/raw/" + version + "/.bach/bin/" + name;
     return copy(uri, name);
   }
 
