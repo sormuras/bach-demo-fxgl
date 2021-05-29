@@ -10,8 +10,8 @@ import com.github.sormuras.bach.api.ProjectInfo.*;
         @External(
             libraries = {
               @ExternalLibrary(name = JAVAFX, version = "16"),
-              @ExternalLibrary(name = FXGL, version = "11.15"),
-              @ExternalLibrary(name = SORMURAS_MODULES, version = "2021.04.13")
+              @ExternalLibrary(name = FXGL, version = "11.16"),
+              @ExternalLibrary(name = SORMURAS_MODULES, version = "2021.05.20")
             }),
     tool =
         @Tool(
