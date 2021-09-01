@@ -42,7 +42,7 @@ java --module-path .bach\workspace\modules;.bach\external-modules --module com.g
 
 - Windows
 ```shell script
-.bach\workspace\image\bin\bach-fxgl[.bat]
+.bach\workspace\image\bin\bach-fxgl
 ```
 
 [Bach]: https://github.com/sormuras/bach
