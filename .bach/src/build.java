@@ -5,7 +5,6 @@ import com.github.sormuras.bach.external.GluonAttach;
 import com.github.sormuras.bach.external.Jackson;
 import com.github.sormuras.bach.external.JavaFX;
 import com.github.sormuras.bach.external.Kotlin;
-import java.awt.GraphicsEnvironment;
 import java.util.List;
 
 class build {
@@ -25,7 +24,7 @@ class build {
 
       builder.compile();
 
-      if (!GraphicsEnvironment.getLocalGraphicsEnvironment().isHeadlessInstance()) {
+      if (!System.getenv().containsKey("CI")) {
         bach.logCaption("Launch FXGL-based Application");
         // FXGL calls System.exit(), don't launch in-process: builder.runModule("com...bach.fxgl");
         var modulePaths = List.of(bach.path().workspace("modules"), bach.path().externalModules());
