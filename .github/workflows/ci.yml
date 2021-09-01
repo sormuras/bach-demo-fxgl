@@ -10,15 +10,21 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest, macOS-latest, windows-latest ]
-        java: [ 16 ]
+        java: [ 17 ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
-      - name: 'Set up JDK'
-        uses: actions/setup-java@v1
+      - name: 'Download JDK'
+        uses: sormuras/download-jdk@v1
         with:
-          java-version: ${{ matrix.java }}
+          feature: ${{ matrix.java }}
+      - name: 'Set up JDK'
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.JDK_VERSION }}
+          distribution: jdkfile
+          jdkFile: ${{ env.JDK_FILE }}
       - name: 'Build with Bach'
         uses: sormuras/bach-build@v1
       - name: 'Upload custom runtime image'

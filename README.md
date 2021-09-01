@@ -4,7 +4,7 @@
 
 ## Prepare
 
-- Download [JDK] 16 or later
+- Download [JDK] 17 or later
 - Clone this repository
 
 ## Build
