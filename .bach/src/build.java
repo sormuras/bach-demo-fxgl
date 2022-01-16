@@ -5,7 +5,10 @@ import com.github.sormuras.bach.external.GluonAttach;
 import com.github.sormuras.bach.external.Jackson;
 import com.github.sormuras.bach.external.JavaFX;
 import com.github.sormuras.bach.external.Kotlin;
-import java.util.List;
+import com.github.sormuras.bach.simple.SimpleSpace;
+import java.io.File;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class build {
   public static void main(String... args) {
@@ -18,25 +21,31 @@ class build {
               JavaFX.version("18-ea+9"),
               Kotlin.version("1.6.10"));
 
-      var builder = bach.builder().conventional("com.github.sormuras.bach.fxgl");
+      var space =
+          SimpleSpace.of(bach)
+              .withModule(
+                  "com.github.sormuras.bach.fxgl",
+                  module -> module.main("com.github.sormuras.bach.fxgl.Main"));
 
-      builder.grab(grabber, "com.almasb.fxgl.all");
+      space.grab(grabber, "com.almasb.fxgl.all");
 
-      builder.compile();
+      space.compile();
 
       if (!System.getenv().containsKey("CI")) {
         bach.logCaption("Launch FXGL-based Application");
-        // FXGL calls System.exit(), don't launch in-process: builder.runModule("com...bach.fxgl");
-        var modulePaths = List.of(bach.path().workspace("modules"), bach.path().externalModules());
+        // FXGL calls System.exit(), don't launch in-process: space.runModule("com...bach.fxgl");
+        var modulePaths =
+            Stream.of(bach.path().workspace("modules"), bach.path().externalModules())
+                .map(Object::toString)
+                .collect(Collectors.joining(File.pathSeparator));
         var java =
-            ToolCall.java()
-                .with("--module-path", modulePaths)
-                .with("--module", "com.github.sormuras.bach.fxgl");
+            ToolCall.java(
+                "--module-path", modulePaths, "--module", "com.github.sormuras.bach.fxgl");
         bach.run(java);
       }
 
       bach.logCaption("Link modules into a custom runtime image");
-      builder.link(jlink -> jlink.with("--launcher", "bach-fxgl=com.github.sormuras.bach.fxgl"));
+      space.link(jlink -> jlink.add("--launcher", "bach-fxgl=com.github.sormuras.bach.fxgl"));
     }
   }
 }
