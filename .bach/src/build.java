@@ -12,11 +12,11 @@ class build {
     try (var bach = new Bach(args)) {
       var grabber =
           bach.grabber(
-              FXGL.version("11.17"),
-              GluonAttach.version("4.0.12"),
-              Jackson.version("2.12.4"),
-              JavaFX.version("16"),
-              Kotlin.version("1.5.30"));
+              FXGL.version("17"),
+              GluonAttach.version("4.0.13"),
+              Jackson.version("2.13.0"),
+              JavaFX.version("18-ea+9"),
+              Kotlin.version("1.6.10"));
 
       var builder = bach.builder().conventional("com.github.sormuras.bach.fxgl");
 
