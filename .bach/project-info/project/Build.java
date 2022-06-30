@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 public class Build implements ToolOperator {
   @Override
   public int run(Bach bach, PrintWriter out, PrintWriter err, String... args) {
-    bach.run("com.github.sormuras.bach/build"); // super.run(...)
+    bach.run("com.github.sormuras.bach/build"); // run default build tool
 
     var main = bach.project().spaces().main();
     var paths = bach.configuration().paths();
