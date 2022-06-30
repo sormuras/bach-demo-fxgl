@@ -3,4 +3,5 @@
 logs/
 system/
 
+*.iml
 *.jar
