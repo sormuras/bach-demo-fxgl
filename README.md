@@ -45,6 +45,18 @@ java --module-path .bach\out\main\modules;.bach\external-modules --module com.gi
 .bach\out\main\image\bin\bach-fxgl
 ```
 
+## Using IntelliJ IDEA to prepare, build, and run
+
+- Download and install IDEA
+- Install [JDK] 17 using IDEA's built-in JDK installation support
+- Clone this repository
+
+### Run via shared Run Configurations
+
+- Initially "Run `bach build`" to resolve missing external modules
+- "Run `Main`" to launch the demo application
+
 [Bach]: https://github.com/sormuras/bach
+[IDEA]: https://www.jetbrains.com/idea
 [JDK]: https://jdk.java.net
 [FXGL]: https://almasb.github.io/FXGL
