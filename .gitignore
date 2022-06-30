@@ -1,7 +1,4 @@
-.idea/
-
 logs/
 system/
 
-*.iml
 *.jar
