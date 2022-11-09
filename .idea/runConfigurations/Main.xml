@@ -1,13 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="com.github.sormuras.bach.fxgl.Main" />
-    <module name="com.github.sormuras.bach.fxgl" />
-    <extension name="coverage">
-      <pattern>
-        <option name="PATTERN" value="com.github.sormuras.bach.fxgl.*" />
-        <option name="ENABLED" value="true" />
-      </pattern>
-    </extension>
+    <option name="MAIN_CLASS_NAME" value="demo.Main" />
+    <module name="demo" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

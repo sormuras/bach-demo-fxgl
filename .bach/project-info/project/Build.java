@@ -26,7 +26,7 @@ public class Build implements ToolOperator {
     bach.run(
         ToolCall.of("jlink")
             .with("--output", image)
-            .with("--launcher", "bach-fxgl=com.github.sormuras.bach.fxgl")
+            .with("--launcher", "demo=demo")
             .with("--add-modules", main.modules().names(","))
             .with("--module-path", modulePaths));
 

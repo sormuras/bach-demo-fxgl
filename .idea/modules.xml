@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/bach-demo-fxgl.iml" filepath="$PROJECT_DIR$/.idea/bach-demo-fxgl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/com.github.sormuras.bach.fxgl.iml" filepath="$PROJECT_DIR$/.idea/com.github.sormuras.bach.fxgl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/demo.iml" filepath="$PROJECT_DIR$/.idea/demo.iml" />
     </modules>
   </component>
 </project>

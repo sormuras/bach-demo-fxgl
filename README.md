@@ -25,24 +25,24 @@ Change into the root directory of your cloned project and call:
 
 - Linux/Mac
 ```shell script
-java --module-path .bach/out/main/modules:.bach/external-modules --module com.github.sormuras.bach.fxgl
+java --module-path .bach/out/main/modules:.bach/external-modules --module demo
 ```
 
 - Windows
 ```shell script
-java --module-path .bach\out\main\modules;.bach\external-modules --module com.github.sormuras.bach.fxgl
+java --module-path .bach\out\main\modules;.bach\external-modules --module demo
 ```
 
 ## Run via custom runtime image
 
 - Linux/Mac
 ```shell script
-.bach/out/main/image/bin/bach-fxgl
+.bach/out/main/image/bin/demo
 ```
 
 - Windows
 ```shell script
-.bach\out\main\image\bin\bach-fxgl
+.bach\out\main\image\bin\demo
 ```
 
 ## Using IntelliJ IDEA
