@@ -1,45 +1,43 @@
-@ECHO OFF
+@echo off
 
-IF "%~1" == "init" (
-  IF "%~2" == "" (
-    ECHO "Usage: bach init VERSION"
-    EXIT /B 1
+setlocal
+
+for %%i in ("%~dp0..") do set BACH_HOME=%%~fi
+set BIN=%BACH_HOME%\bin
+set SRC=%BACH_HOME%\src
+
+if "%BACH_VERBOSE%"=="true" (
+  echo ^| BAT = %~dpnx0
+  echo ^| BIN = %BIN%
+  if exist %SRC% echo ^| SRC = %SRC%
+)
+
+if "%JAVA_HOME%"=="" (
+  echo JAVA_HOME not set, trying via PATH
+  set JAVA="java.exe"
+  set JAVAC="javac.exe"
+) else (
+  set JAVA="%JAVA_HOME%\bin\java.exe"
+  set JAVAC="%JAVA_HOME%\bin\javac.exe"
+)
+
+if exist "%SRC%\run.bach\main\java\module-info.java" (
+  if "%BACH_VERBOSE%"=="true" (
+    echo ^| BOOT
   )
-  jshell -R-Dbach-version=%2 https://git.io/bach-init
-  EXIT /B
+  %JAVAC% --release 17 --module run.bach,run.duke --module-version 2022-ea+src --module-source-path %SRC%\*\main\java -d %BIN%
 )
 
-IF NOT EXIST ".bach\bin\*.jar" (
-  IF EXIST ".bach\src\bach-init.java" (
-    java .bach\src\bach-init.java
-  ) ELSE IF EXIST ".bach\bin\bach-init.version" (
-    SET /p VERSION=<.bach\bin\bach-init.version
-    jshell -R-Dbach-version=%VERSION% https://git.io/bach-init
-  ) ELSE (
-    ECHO "Usage: bach init VERSION"
-    EXIT /B 1
-  )
+set BACH=-ea --module-path %BIN% --add-modules ALL-DEFAULT,ALL-MODULE-PATH --module run.bach/run.bach.Main
+
+if "%BACH_VERBOSE%"=="true" (
+  echo ^| JAVA = %JAVA%
+  echo ^| BACH = %BACH%
+  echo ^| ARGS = "%*"
 )
 
-IF "%~1" == "boot" (
-  REM SHIFT 1
-  jshell --module-path .bach\bin --add-modules ALL-MODULE-PATH,ALL-SYSTEM .bach\bin\bach.jshell %2 %3 %4 %5 %6 %7 %8 %9
-  EXIT /B
-)
+%JAVA% %BACH% %*
 
-SET JAVA_LAUNCHER_ARGUMENTS=--module-path=.bach\bin --add-modules=ALL-MODULE-PATH --add-modules=ALL-DEFAULT
+endlocal
 
-IF EXIST ".bach\src\%~1.java" (
-  REM PROGRAM=
-  REM SHIFT 1
-  java %JAVA_LAUNCHER_ARGUMENTS% ".bach\src\%~1.java" %2 %3 %4 %5 %6 %7 %8 %9
-  EXIT /B
-)
-
-IF EXIST "%~1" (
-  java %JAVA_LAUNCHER_ARGUMENTS% %*
-  EXIT /B
-)
-
-java %JAVA_LAUNCHER_ARGUMENTS% --module com.github.sormuras.bach %*
-EXIT /B
+exit /B

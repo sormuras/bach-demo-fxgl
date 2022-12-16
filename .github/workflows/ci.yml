@@ -5,22 +5,19 @@ on:
       - main
 jobs:
   build:
-    name: "Build (JDK-${{ matrix.java }}, ${{ matrix.os }})"
+    name: "Build (${{ matrix.os }})"
     strategy:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest, macOS-latest, windows-latest ]
-        java: [ 17 ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: 'Set up JDK'
         uses: oracle-actions/setup-java@v1
-        with:
-          release: ${{ matrix.java }}
       - name: 'Build with Bach'
-        uses: sormuras/bach-build@v1
+        run: .bach/bin/bach build
       - name: 'Upload custom runtime image'
         uses: actions/upload-artifact@v2
         with:
