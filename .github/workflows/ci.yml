@@ -19,6 +19,7 @@ jobs:
       - name: 'Set up JDK'
         uses: oracle-actions/setup-java@v1
       - name: 'Build with Bach'
+        shell: bash
         run: java @build
       - name: 'Upload custom runtime image'
         uses: actions/upload-artifact@v4
