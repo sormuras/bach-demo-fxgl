@@ -4,33 +4,27 @@
 
 ## Prepare
 
-- Download [JDK] 17 or later
-- Clone this repository
+- Download and install [JDK] 22 or later
+- Clone this repository with submodules
 
 ## Build
 
 Change into the root directory of your cloned project and call:
 
-- Linux/Mac
 ```shell script
-.bach/bin/bach build
-```
-
-- Windows
-```shell script
-.bach\bin\bach build
+java @build
 ```
 
 ## Run via Java Launcher
 
 - Linux/Mac
 ```shell script
-java --module-path .bach/out/main/modules:.bach/external-modules --module demo
+java --module-path .bach/out/main/modules:lib --module demo
 ```
 
 - Windows
 ```shell script
-java --module-path .bach\out\main\modules;.bach\external-modules --module demo
+java --module-path .bach\out\main\modules;lib --module demo
 ```
 
 ## Run via custom runtime image
@@ -47,9 +41,9 @@ java --module-path .bach\out\main\modules;.bach\external-modules --module demo
 
 ## Using IntelliJ IDEA
 
-- Install [IDEA] and optionally set up [JDK] 17 using IDEA's built-in JDK setup wizard
-- Clone this repository
-- Initially "Run `bach build`" to resolve missing external modules
+- Install [IDEA] and optionally set up [JDK] 22 or later using IDEA's built-in JDK setup wizard
+- Clone this repository with submodules
+- Initially "Run `java @build`" to restore missing required modules
 - "Run `Main`" to launch the demo application
 
 [Bach]: https://github.com/sormuras/bach
